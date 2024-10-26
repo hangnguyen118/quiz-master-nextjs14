@@ -1,6 +1,6 @@
 "use client"
 import { useDisclosure } from '@mantine/hooks';
-import { Menu, Group, Center, Burger, Container, Image, Autocomplete } from '@mantine/core';
+import { Menu, Group, Center, Burger, Container, Avatar, Autocomplete, Button } from '@mantine/core';
 import { IconChevronDown, IconSearch } from '@tabler/icons-react';
 import classes from './style.module.css';
 
@@ -71,10 +71,10 @@ export default function HeaderMenu() {
       <Container size="md">
         <div className={classes.inner}>
           <Group>
-            <Burger opened={opened} onClick={toggle} aria-label="Toggle navigation" size="sm" hiddenFrom="sm" />
-            <Image h={50} w="auto" fit="contain" alt="WEB_LOGO" src="assets/icons/logo.png"></Image>
+            <Burger opened={opened} onClick={toggle} aria-label="Toggle navigation" size="sm" hiddenFrom="md" />
+            <Avatar h={50} w="auto" alt="WEB_LOGO" src="assets/icons/logo.png" component="a" href='/' />
           </Group>
-          <Group gap={5} visibleFrom="sm">
+          <Group gap={5} visibleFrom="md">
             {items}
           </Group>
           <Autocomplete
@@ -84,6 +84,9 @@ export default function HeaderMenu() {
             data={['React', 'Angular', 'Vue', 'Next.js', 'Riot.js', 'Svelte', 'Blitz.js']}
             visibleFrom="xs"
           />
+          <Group>
+            <Button variant="filled" component="a" href="/login">Login</Button>
+          </Group>
         </div>
       </Container>
     </header>
