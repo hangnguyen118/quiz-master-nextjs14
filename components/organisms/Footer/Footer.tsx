@@ -1,5 +1,5 @@
 "use client"
-import { Anchor, Group, ActionIcon, rem, Image } from '@mantine/core';
+import { Anchor, Group, ActionIcon, rem, Image, AppShell } from '@mantine/core';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
 import classes from './style.module.css';
 
@@ -43,6 +43,7 @@ export default function Footer() {
           </ActionIcon>
         </Group>
       </div>
+     
     </div>
   );
 }

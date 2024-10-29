@@ -4,10 +4,8 @@ import { Features, Hero } from "@/components"
 export default function Home() {
   return (
     <Container size="lg">
-      <main>
-        <Hero />
-        <Features />
-      </main>
+      <Hero />
+      <Features />
     </Container>
   );
 }

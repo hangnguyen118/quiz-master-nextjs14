@@ -26,10 +26,12 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="light">
-        <HeaderMenu/>
-          {children}
-          <Footer/>
-          </MantineProvider>
+          <HeaderMenu />
+          <main style={{ minHeight: '100vh' }}>
+            {children}
+          </main>
+          <Footer />
+        </MantineProvider>
       </body>
     </html>
   );
