@@ -2,7 +2,7 @@
 import { upperFirst, useDisclosure, useToggle } from '@mantine/hooks';
 import { useForm } from '@mantine/form';
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import { db } from "../../../lib/firebase/firebase";
+import { db } from "../../../_lib/firebase/firebase";
 import { doc, setDoc, serverTimestamp, getDoc} from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
 import {

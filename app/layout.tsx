@@ -4,7 +4,7 @@ import '@mantine/core/styles.css';
 
 
 import { ColorSchemeScript, MantineProvider, createTheme } from '@mantine/core';
-import { HeaderMenu, Footer } from '../components';
+import { HeaderMenu, Footer } from '../_components';
 
 export const metadata = {
   title: 'My Mantine app',

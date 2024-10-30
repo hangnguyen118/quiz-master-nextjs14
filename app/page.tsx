@@ -1,5 +1,5 @@
 import { Container } from "@mantine/core";
-import { Features, Hero } from "@/components"
+import { Features, Hero } from "@/_components"
 
 export default function Home() {
   return (

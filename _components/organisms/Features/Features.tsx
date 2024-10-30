@@ -7,7 +7,7 @@ import {
   Container,
 } from '@mantine/core';
 import classes from './style.module.css';
-import CardGradient from '@/components/atoms/CardGradient';
+import CardGradient from '@/_components/atoms/CardGradient';
 
 export default function Features() {
   // const features = mockdata.map((feature) => (

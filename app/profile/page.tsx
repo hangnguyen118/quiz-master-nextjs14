@@ -1,5 +1,5 @@
 'use client'
-import { auth } from "@/lib/firebase/firebase";
+import { auth } from "@/_lib/firebase/firebase";
 import { Button, Container, Group, Loader, Paper, PaperProps, PasswordInput, Stack, Text, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from '@mantine/hooks';
