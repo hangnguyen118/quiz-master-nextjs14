@@ -1,16 +1,9 @@
-// Import styles of packages that you've installed.
-// All packages except `@mantine/hooks` require styles imports
+"use client"
 import '@mantine/core/styles.css';
-
-
 import { ColorSchemeScript, MantineProvider, createTheme } from '@mantine/core';
 import { HeaderMenu, Footer } from '../_components';
-
-export const metadata = {
-  title: 'My Mantine app',
-  description: 'I have followed setup instructions carefully',
-};
-
+import { store } from "@/_lib/redux/store";
+import { Provider } from 'react-redux'
 const theme = createTheme({
 });
 
@@ -26,11 +19,13 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="light">
-          <HeaderMenu />
-          <main style={{ minHeight: '100vh' }}>
-            {children}
-          </main>
-          <Footer />
+          <Provider store={store}>
+            <HeaderMenu/>
+            <main style={{ minHeight: '100vh' }}>
+              {children}
+            </main>
+            <Footer />
+          </Provider>
         </MantineProvider>
       </body>
     </html>

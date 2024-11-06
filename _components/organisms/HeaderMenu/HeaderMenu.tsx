@@ -2,8 +2,10 @@
 import { useDisclosure } from '@mantine/hooks';
 import { Menu, Group, Center, Burger, Container, Avatar, Autocomplete, Button } from '@mantine/core';
 import { IconChevronDown, IconSearch } from '@tabler/icons-react';
-import classes from './style.module.css';
-
+import classes from './style.module.css'; 
+import { auth } from '@/_lib/firebase/firebase';
+import { useEffect, useState } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
 const links = [
   { link: '/about', label: 'Features' },
   {
@@ -31,6 +33,14 @@ const links = [
 
 export default function HeaderMenu() {
   const [opened, { toggle }] = useDisclosure();
+  const [currentUser, setCurrentUser] = useState(auth.currentUser);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log("1");
+        setCurrentUser(user);  
+    });
+    return () => unsubscribe();
+}, [auth]);
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
       <Menu.Item key={item.link}>{item.label}</Menu.Item>
@@ -85,7 +95,10 @@ export default function HeaderMenu() {
             visibleFrom="xs"
           />
           <Group>
-            <Button variant="filled" component="a" href="/login">Login</Button>
+            {
+              !currentUser ? <Button component="a" href="/login" variant="filled">Login</Button>
+                : <Avatar color="cyan" radius="xl" component="a" href="/profile">{currentUser.displayName?.charAt(0).toLocaleUpperCase()}</Avatar>
+            }
           </Group>
         </div>
       </Container>
